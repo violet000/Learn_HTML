@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!--
+<output>
+Baseline Widely available
+HTML <output> 标签表示计算或用户操作的结果。
+
+TODO: 属性
+这个标签具有 全局属性。
+
+1、for
+其他影响计算结果的标签的 ID，可以多个。
+
+2、form
+与当前标签有关联的 form（从属的表单）。该属性的值必须是当前文档内的表单元素的 ID。如果未指明该属性，output 标签必须是一个 form 的后代标签。该属性的用处在于可以让 output 标签脱离 form 标签，存在于一个网页文档的任意位置。
+
+3、name
+name 属性。
+-->
+<form oninput="result.value=parseInt(a.value)+parseInt(b.value)">
+  <input type="range" name="b" value="50" /> +
+  <input type="number" name="a" value="10" /> =
+  <output name="result"></output>
+</form>
+
+</body>
+</html>

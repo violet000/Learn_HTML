@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!--
+form
+HTML <form> 元素表示文档中的一个区域，此区域包含交互控件，用于向 Web 服务器提交信息。
+
+TODO: 关于提交表单的属性
+下列属性控制提交表单时的行为。
+
+1、action
+处理表单提交的 URL。这个值可被 <button>、<input type="submit"> 或 <input type="image"> 元素上的 formaction 属性覆盖。
+
+2、enctype
+当 method 属性值为 post 时，enctype 就是将表单的内容提交给服务器的 MIME 类型。可能的取值有：
+
+application/x-www-form-urlencoded：未指定属性时的默认值。
+multipart/form-data：当表单包含 type=file 的 <input> 元素时使用此值。
+text/plain：出现于 HTML5，用于调试。这个值可被 <button>、<input type="submit"> 或 <input type="image"> 元素上的 formenctype 属性覆盖。
+
+3、method
+浏览器使用这种 HTTP 方法来提交 表单。可能的值有：
+
+post：POST 方法；表单数据会包含在表单体内然后发送给服务器。
+get（默认）：GET 方法；表单数据会附加在 action 属性的 URL 中，并以 ? 作为分隔符，没有副作用时使用这个方法。
+dialog：如果表单在 <dialog> 元素中，提交时关闭对话框。此值可以被 <button>、<input type="submit"> 或 <input type="image"> 元素中的 formmethod 属性覆盖。
+
+4、novalidate
+此布尔值属性表示提交表单时不需要验证表单。如果没有声明该属性（因此表单需要通过验证）。该属性可以被表单中的 <button>、<input type="submit"> 或 <input type="image"> 元素中的 formnovalidate 属性覆盖。
+
+5、target
+表示在提交表单之后，在哪里显示响应信息。这是一个浏览上下文的名字/关键字（如标签页、窗口或 iframe）。下述关键字有特别含义：
+
+_self（默认）：在相同浏览上下文中加载。
+_blank：在新的未命名的浏览上下文中加载。
+_parent：在当前上下文的父级浏览上下文中加载，如果没有父级，则与 _self 表现一致。
+_top：在最顶级的浏览上下文中（即当前上下文的一个没有父级的祖先浏览上下文），如果没有父级，则与 _self 表现一致。此值可以被 <button>、<input type="submit"> 或 <input type="image"> 元素中的 formtarget 属性覆盖。
+
+-->
+<form action="" method="get" class="form-example">
+  <div class="form-example">
+    <label for="name">Enter your name: </label>
+    <input type="text" name="name" id="name" required />
+  </div>
+  <div class="form-example">
+    <label for="email">Enter your email: </label>
+    <input type="email" name="email" id="email" required />
+  </div>
+  <div class="form-example">
+    <input type="submit" value="Subscribe!" />
+  </div>
+</form>
+
+</body>
+</html>

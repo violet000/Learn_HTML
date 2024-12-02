@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+      details {
+          font-family: "Open Sans Light", Helvetica, Arial, sans-serif;
+      }
+      .name {
+          font-weight: bold;
+          color: #217ac0;
+          font-size: 120%;
+      }
+      h4 {
+          margin: 10px 0 -8px 0;
+          background: #217ac0;
+          color: white;
+          padding: 2px 6px;
+          border: 1px solid #cee9f9;
+          border-radius: 4px;
+      }
+      .attributes {
+          margin-left: 22px;
+          font-size: 90%;
+      }
+      .attributes p {
+          margin-left: 16px;
+          font-style: italic;
+      }
+  </style>
+</head>
+<body>
+<!--
+<slot>：Web 组件插槽元素
+Baseline Widely available
+<slot> HTML 元素是——Web 组件技术套件的一部分——它是一个在 web 组件内部的占位符，你可以使用自己的标记来填充该占位符，从而创建单独的 DOM 树并将其一起呈现。
+-->
+<details>
+  <summary>
+    <code class="name">
+      &lt;<slot name="element-name">需要名称</slot>&gt;
+    </code>
+    <span class="desc"><slot name="description">需要描述</slot></span>
+  </summary>
+  <div class="attributes">
+    <h4>属性</h4>
+    <slot name="attributes"><p>无</p></slot>
+  </div>
+</details>
+
+</body>
+</html>

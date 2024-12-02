@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!--
+<iframe>：内嵌框架元素
+Baseline Widely available
+HTML 元素 <iframe> 表示嵌套的浏览上下文。它能够将另一个 HTML 页面嵌入到当前页面中。
+
+TODO: 属性
+该元素包含全局属性。
+
+1、allow
+用于为 <iframe> 指定其权限策略。该策略根据请求的来源规定 <iframe> 可以使用哪些特性（例如，访问麦克风、摄像头、电池、web 共享等）。
+示例请参见 Permissions-Policy 中的 iframe。
+备注：通过 allow 属性指定的权限策略会在 Permissions-Policy 标头指定的策略基础上进一步地限制。它不会替换原有策略。
+
+2、allowfullscreen
+设置为 true 时，可以通过调用 <iframe> 的 requestFullscreen() 方法激活全屏模式。
+备注：这是一个历史遗留属性，已经被重新定义为 allow="fullscreen"。
+
+3、allowpaymentrequest 已弃用 非标准
+设置为 true 时，跨源的 <iframe> 就可以调用支付请求 API。
+备注：这是一个历史遗留属性，已经被重新定义为 allow="payment"。
+
+4、browsingtopics 实验性 非标准
+一个布尔属性，如果存在，则指定当前用户选定的主题应该与 <iframe> 源的请求一起发送。更多信息请参见使用主题 API。
+
+5、credentialless 实验性
+设置为 true 可以将 <iframe> 设为无凭据模式，这意味着将内容加载到新的临时上下文中。它无法访问与其来源相关的网络、cookie 和存储数据。它使用一个新上下文（生命周期局限于顶层文档的生命周期）。作为补偿，可以解除 Cross-Origin-Embedder-Policy（COEP）嵌入规则的限制，所以设置了 COEP 的文档可以嵌入未设置的第三方文档。更多信息请参见 iFrame 无凭据模式。
+
+6、csp 实验性
+对嵌入的资源配置内容安全策略。查看 HTMLIFrameElement.csp 获取详情。
+
+7、height
+以 CSS 像素格式指定框架的高度。默认值为 150。
+
+8、loading
+表示浏览器应当何时加载 iframe：
+
+9、eager
+在页面加载时立即加载 iframe（默认值）。
+
+10、lazy
+推迟 iframe 的加载，直到达到浏览器定义的可视视口的计算距离。目的是在浏览器确定需要它前，避免占用获取框架所需的网络和存储带宽。这改进了在大多数使用场景中的性能表现，尤其是减少了页面的首次加载时间。
+备注：只有当 JavaScript 启用时才会推迟加载。这是一个反跟踪措施。
+
+11、name
+可定位嵌入的浏览上下文的名称。该名称可以用作 <a>、<form> 或 <base> 元素的 target 属性值，也可以用作 <input> 和 <button> 元素的 formtarget 属性值，还可以用作 window.open() 方法的 windowName 参数值。
+
+12、referrerpolicy
+表示在获取 iframe 资源时发送哪个 referrer：
+
+13、no-referrer
+不发送 Referer 标头。
+
+14、no-referrer-when-downgrade
+向不受 TLS（HTTPS）保护的源发送请求时，不发送 Referer 标头。
+
+15、origin
+发送的 referrer 仅包含来源（referring）页面的源（origin）：其协议、主机和端口。
+
+16、origin-when-cross-origin
+当 referrer 被发送到其他源时，其仅限于协议、主机和端口。同源的导航仍会包含路径。
+
+17、same-origin
+对于同源请求，发送 referrer；跨源请求不会包含 referrer 信息。
+
+18、strict-origin
+仅当被请求页面和来源页面具有相同的协议安全等级（HTTPS→HTTPS）时才发送 referrer，如果目标具有较低的安全等级（HTTPS→HTTP），则不会发送。
+
+19、strict-origin-when-cross-origin（默认值）
+当发起同源请求时，发送完整的 URL；当仅具有相同协议安全等级（HTTPS→HTTPS）时，只发送源；当目标具有较低的安全等级（HTTPS→HTTP）时，则不会发送此标头。
+
+20、unsafe-url
+始终在 referrer 标头中包含源和路径（但不包括片段标识符、密码和用户名）。这个值是不安全的，因为这样做会向不安全的源暴露受 TLS 保护的资源的源和路径。
+
+21、sandbox
+控制应用于嵌入在 <iframe> 中的内容的限制。该属性的值可以为空以应用所有限制，也可以为空格分隔的标记以解除特定的限制：
+
+22、allow-downloads
+允许通过带有 download 属性的 <a> 或 <area> 元素或者通过导航来下载文件，无论是用户通过点击链接触发，还是在用户没有交互的情况下通过 JS 代码触发。
+
+23、allow-forms
+允许页面提交表单。如果没有使用该关键字，表单会正常显示，但是无法校验输入内容、发送数据到 Web 服务器或是关闭对话框。
+
+24、allow-modals
+允许页面通过 Window.alert()、Window.confirm()、Window.print() 和 Window.prompt() 打开模态窗口；无论有无该关键字，打开 <dialog> 是被允许的。它同样允许页面接收 BeforeUnloadEvent 事件。
+
+25、allow-orientation-lock
+允许资源锁定屏幕方向。
+
+26、allow-pointer-lock
+允许页面使用指针锁定 API。
+
+27、allow-popups
+允许弹窗（例如 Window.open()、target="_blank"、Window.showModalDialog()）。如果没有使用该关键字，相应的功能会静默失败。
+
+28、allow-popups-to-escape-sandbox
+允许沙箱化的文档打开新的浏览上下文，并且新浏览上下文不会继承沙箱标记。例如，安全地沙箱化一个第三方的广告页面，而不会在广告链接到的新页面中启用相同的限制条件。如果不包含这个标记，重定向的页面、弹出窗口或新标签页将受到与源 <iframe> 相同的沙盒限制。
+
+29、allow-presentation
+允许主文档控制是否允许 iframe 开启演示会话。
+
+30、allow-same-origin
+如果没有使用该关键字，资源将被视为来自一个特殊的源（始终使同源策略失败）。（可以阻止对数据存储/cookie 和一些 JavaScript API 的潜在访问）。
+
+31、allow-scripts
+允许页面运行脚本（但不能创建弹窗）。如果没有使用该关键字，则不允许该操作。
+
+32、allow-storage-access-by-user-activation 实验性
+允许 <iframe> 中的文档通过储存访问 API 请求访问非分区 cookie。
+
+33、allow-top-navigation
+允许资源导航顶级（即名称为 _top 的）浏览上下文。
+
+34、allow-top-navigation-by-user-activation
+允许资源导航顶级浏览上下文（但只能由用户手势启动）。
+
+35、allow-top-navigation-to-custom-protocols
+允许导航到浏览器内置的或由网站注册的非 http 协议页面。此特性也可以由 allow-popups 或 allow-top-navigation 关键词激活。
+
+备注：
+
+当被嵌入的文档与主页面同源时，强烈建议不要同时使用 allow-scripts 和 allow-same-origin。如果同时使用，嵌入的文档就可以删除 sandbox 属性——会使得安全性还不如不用 sandbox 属性。
+如果攻击者可以在沙箱化的 iframe 之外展示内容，例如用户在新标签页中打开框架，那么沙箱化也就没有意义了。建议把这种内容放置到独立的来源中，以减小可能的损害。
+备注：在带有 sandbox 属性的 <iframe> 嵌入的页面中，当用户被重定向，打开一个弹出窗口或者打开一个新标签页时，新的浏览上下文同样受到 sandbox 的限制。这可能会产生问题——例如，如果一个页面被嵌入到没有设置 sandbox="allow-forms" 或 sandbox="allow-popups-to-escape-sandbox" 属性的 <iframe> 时，当这个页面在独立的标签页中打开一个新站点，这个页面的表单提交将会静默失败。
+
+36、src
+被嵌入的页面的 URL 地址。使用 about:blank 值可以嵌入一个遵从同源策略的空白页。还需要注意的是，在 Firefox（版本 65 及更高版本）、基于 Chromium 的浏览器、Safari/iOS 中使用代码移除 iframe 的 src 属性（例如通过 Element.removeAttribute()）会导致 about:blank 被载入框架。
+备注：在解析任何相对 URL（例如锚点链接）时，about:blank 页面会使用嵌入的文档的 URL 作为它的基准 URL。
+
+37、srcdoc
+要嵌入的内联 HTML，会覆盖 src 属性。其内容应遵循完整的 HTML 文档的语法（包含文档类型指令、<html>、<body> 标签等，虽然绝大多数标签可以被省略，仅保留主体内容）。该文档会以 about:srcdoc 作为其位置。如果浏览器不支持 srcdoc 属性，其会回退到 src 属性的 URL。
+备注：在解析任何相对 URL（例如锚点链接）时，about:srcdoc 页面会使用嵌入的文档的 URL 作为它的基准 URL。
+
+38、width
+框架的宽度（以 CSS 像素为单位）。默认值是 300。
+-->
+<iframe
+  id="inlineFrameExample"
+  title="Inline Frame Example"
+  width="300"
+  height="200"
+  src="https://www.openstreetmap.org/export/embed.html?bbox=-0.004017949104309083%2C51.47612752641776%2C0.00030577182769775396%2C51.478569861898606&layer=mapnik">
+</iframe>
+</body>
+</html>

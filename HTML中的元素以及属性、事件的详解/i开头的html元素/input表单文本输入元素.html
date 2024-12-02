@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!--
+<input>：输入（表单输入）元素
+Baseline Widely available
+HTML <input> 元素用于为基于 Web 的表单创建交互式控件，以便接受来自用户的数据。取决于设备和用户代理不同，表单可以使用各种类型的输入数据和控件。<input> 元素是目前 HTML 中最强大、最复杂的元素之一，因为它有大量的输入类型和属性组合。
+
+属性
+<input> 元素由于拥有诸多属性而异常强大，其中前文举例说明的 type 属性尤其重要。由于所有 <input> 元素无论是哪种 type，都基于 HTMLInputElement 接口，所以理论上说，它们共享一套相同的属性。但实际上大部分属性只作用于特定一组 type。此外，一些属性作用于 <input> 的方式取决于 <input> 的 type 属性，不同的 type 有不同的效果。
+
+下面的表格列出了所有属性，每个属性都有简短的描述。表格后的列表更详细地描述了各个属性及它们与哪些 input 类型相关。与大部分或者全部 input 类型都相关的属性会讲述更多细节。一些针对特定 input 类型的属性，或者所有 input 类型都有，但在特定的 input 类型上有特定表现的属性，会在相应的类型页面中说明。这个元素包含全局属性，一些针对 <input> 元素有额外意义的全局属性也会特别说明。
+
+<input> 元素包含的属性包含全局的 HTML 属性和以下这些额外属性：
+
+TODO: 属性	类型	描述
+accept	file	文件上传控件中预期文件类型的提示
+alt	image	图片类型的 alt 属性。对无障碍是必需的
+autocomplete	除了 checkbox、radio 和按钮以外	表单自动填充特性提示
+capture	file	文件上传控件中媒体捕获方法的提示
+checked	checkbox、radio	控件是否选中
+dirname	search、text	表单字段的名称，用于在提交表单时发送元素的方向性
+disabled	所有类型	表单控件是否禁用
+form	所有类型	将控件联系到表单元素中
+formaction	image、submit	要提交表单的 URL 地址
+formenctype	image、submit	提交表单时使用的表单数据编码类型
+formmethod	image、submit	提交表单时所使用的 HTTP 方法
+formnovalidate	image、submit	绕过表单提交时的表单控件验证
+formtarget	image、submit	提交表单时的浏览上下文
+height	image	与 <img> 元素的 height 属性有相同含义，垂直方向上的维度值
+list	除了 hidden、password、checkbox、radio 和按钮以外	自动完成选项的 <datalist> 的 id 属性的值
+max	date、month、week、time、datetime-local、number、range	最大值
+maxlength	text、search、url、tel、email、password	value 的最大长度（字符数）
+min	date、month、week、time、datetime-local、number、range	最小值
+minlength	text、search、url、tel、email、password	value 的最小长度（字符数）
+multiple	email、file	布尔值。是否允许多个值
+name	所有类型	表单的控件名称，作为键值对的一部分与表单一同提交
+pattern	text、search、url、tel、email、password	为了使得 value 有效，必须符合的模式
+placeholder	text、search、url、tel、email、password、number	当没有值设定时，出现在表单控件上的文字
+readonly	除了 hidden、range、color、checkbox、radio 和按钮以外	布尔值。如果存在，其中的值将不可编辑。
+required	除了 hidden、range、color 和按钮以外	布尔值。如果存在，一个值是必需的，或者必须勾选该值才能提交表格。
+size	text、search、url、tel、email、password	控件的尺寸
+src	image	与 <img> 元素的 src 属性含义相同，图片资源的地址
+step	date、month、week、time、datetime-local、number、range	有效的增量值
+type	所有类型	表单控件的类型
+value	所有类型	表单控件的初始值
+width	image	与 <img> 元素的 width 属性含义相同
+
+-->
+<label for="name">Name (4 to 8 characters):</label>
+
+<input type="text" id="name" name="name" required minlength="4" maxlength="8" size="10" />
+
+</body>
+</html>

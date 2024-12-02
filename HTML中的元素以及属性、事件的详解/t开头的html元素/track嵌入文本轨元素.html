@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!--
+<track>：嵌入文本轨元素
+Baseline Widely available
+<track> HTML 元素作为媒体元素 <audio> 和 <video> 的子元素使用。每个文本轨元素允许你指定一个定时文本轨（或基于时间的数据），可以与媒体元素并行显示，例如在视频上叠加字幕或隐藏式字幕，或与音频轨一起显示。
+
+可以为一个媒体元素指定多个轨道，包含不同种类的定时文本数据，或为不同区域翻译的定时文本数据。使用的数据将是已设置为默认的轨道，或者基于用户偏好的类型和语言翻译。
+
+轨道格式为 WebVTT 格式（.vtt 文件）——Web 视频文本轨。
+-->
+<video controls src="/media/cc0-videos/friday.mp4">
+  <track default kind="captions" srclang="en" src="/media/examples/friday.vtt" />
+  Download the
+  <a href="/media/cc0-videos/friday.mp4">MP4</a>
+  video, and
+  <a href="/media/examples/friday.vtt">subtitles</a>.
+</video>
+
+</body>
+</html>

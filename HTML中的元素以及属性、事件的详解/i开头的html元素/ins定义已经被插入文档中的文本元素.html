@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+      del,
+      ins {
+          display: block;
+          text-decoration: none;
+          position: relative;
+      }
+
+      del {
+          background-color: #fbb;
+      }
+
+      ins {
+          background-color: #d4fcbc;
+      }
+
+      del::before,
+      ins::before {
+          position: absolute;
+          left: 0.5rem;
+          font-family: monospace;
+      }
+
+      del::before {
+          content: '−';
+      }
+
+      ins::before {
+          content: '+';
+      }
+
+      p {
+          margin: 0 1.8rem 0;
+          font-family: Georgia, serif;
+          font-size: 1rem;
+      }
+
+  </style>
+</head>
+<body>
+<!--
+<ins>
+Baseline Widely available
+简介
+HTML <ins> 元素定义已经被插入文档中的文本。
+
+TODO: 属性
+该元素支持所有 全局特性，除此以外还支持下列属性：
+
+1、cite
+cite 属性的值指向一个文档的 URL，该文档解释了文本被插入或修改的原因。（目前该属性还没有被主流浏览器支持）
+
+2、datetime
+该特性指示的此修改发生的时间和日期，并且该特性的值必须是一个有效的日期或者时间字符串。如果该值不能被解析为日期或者时间，则该元素不具有相关联的时间标记。
+-->
+
+<p>“You're late!”</p>
+<del>
+  <p>“I apologize for the delay.”</p>
+</del>
+<ins cite="../howtobeawizard.html" datetime="2018-05">
+  <p>“A wizard is never late …”</p>
+</ins>
+</body>
+</html>
